@@ -2,14 +2,16 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import './assets/common.less';
 
-// import { Hello } from "./components/hello/Hello";
 import { Welcome } from './components/welcome/Welcome';
-// import './module.d.ts';
+import { PersonalBlog } from './components/personal/personalBlog/PersonalBlog';
+import { PersonalTraveling } from './components/personal/personalTraveling/PersonalTraveling';
 
 function App() {
   return (
-    <div className="h-per-100">
+    <div className="h-per-100 overflow-y">
       <Welcome />
+      <PersonalBlog />
+      <PersonalTraveling />
     </div>
   )
 }

@@ -17,8 +17,23 @@ html,body,#root {
   height: @wholePercent;
 }
 
+.overflow-y {
+  overflow-y: auto;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.dark {
+  background: @dark;
+}
+
 .flex {
   display: flex;
+  &.wrap {
+    flex-wrap: wrap;
+  }
   &.flex_center {
     justify-content: center;
     align-items: center;

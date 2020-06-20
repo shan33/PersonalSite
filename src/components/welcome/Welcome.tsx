@@ -4,8 +4,8 @@ import { logo } from '../../assets/icons';
 
 function Welcome() {
   return (
-    <div className="flex between h-per-100">
-      <aside className="aside">
+    <div className="flex between h-per-100 sticky outer dark">
+      <aside className="aside flex column">
         <section className="flex column flex_center">
           <div><img className="icon" src={logo} alt="logo" /></div>
           <p>XLS 同学</p>
