@@ -57,7 +57,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'build'),
     publicPath: '/',
     hot: true,
-    host: 'localhost',
+    host: '47.103.222.148',
     port: 8080,
     headers: {
       time: new Date().getMilliseconds()
