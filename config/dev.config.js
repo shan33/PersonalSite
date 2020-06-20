@@ -58,7 +58,7 @@ module.exports = {
     publicPath: '/',
     hot: true,
     host: '47.103.222.148',
-    port: 8080,
+    port: 80,
     headers: {
       time: new Date().getMilliseconds()
     }
