@@ -1,12 +1,30 @@
+@import './../../assets/common.less';
 @import './../../assets/darkTheme.less';
+
+@boxLength: 400px;
 
 .icon {
   width: 100px;
   height: 100px;
 }
 
-.header,
-.footer {
-  flex: 0 0 100px;
-  background: @light;
+.aside {
+  flex: 0 0 @boxLength;
+  .terminal {
+    background: @gray;
+    opacity: .3;
+  }
+  
+  .box {
+    flex: 0 0 @boxLength;
+    width: @boxLength;
+    background: @gray;
+  }
 }
+
+.aside-body {
+  flex: 1 1 800px;
+  height: 100%;
+  background: @gray;
+}
+
