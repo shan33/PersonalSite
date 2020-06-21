@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "webpack",
+    "build": "webpack --config ./config/prod.config.js",
     "dev": "webpack-dev-server --open --config ./config/dev.config.js"
   },
   "repository": {

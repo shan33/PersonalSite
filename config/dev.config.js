@@ -54,11 +54,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, '/build'),
     publicPath: '/',
     hot: true,
     host: 'localhost',
-    port: 8080,
+    port: 8090,
     headers: {
       time: new Date().getMilliseconds()
     }
