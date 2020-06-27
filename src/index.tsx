@@ -2,9 +2,9 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import './assets/common.less';
 
-import { Welcome } from './components/welcome/Welcome';
-import { PersonalBlog } from './components/personal/personalBlog/PersonalBlog';
-import { PersonalTraveling } from './components/personal/personalTraveling/PersonalTraveling';
+import { Welcome } from './pages/welcome/Welcome';
+import { PersonalBlog } from './pages/personal/personalBlog/PersonalBlog';
+import { PersonalTraveling } from './pages/personal/personalTraveling/PersonalTraveling';
 
 function App() {
   return (

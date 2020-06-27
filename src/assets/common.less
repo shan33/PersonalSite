@@ -2,6 +2,14 @@
 
 @wholePercent: 100%;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
 html,body,#root {
   width: @wholePercent;
   height: @wholePercent;
@@ -62,4 +70,16 @@ html,body,#root {
   &.around {
     justify-content: space-around;
   }
+}
+
+.mar {
+  &-l-20 {
+    margin-left: 20px;
+  }
+}
+
+input.default {
+  background: transparent;
+  outline: none;
+  border: none;
 }

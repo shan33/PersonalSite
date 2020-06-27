@@ -14,21 +14,28 @@
 
 .aside {
   flex: 1 2 @boxLength;
+  margin: 20px;
   .terminal {
-    background: @gray;
-    opacity: .3;
+    background: @black;
   }
   
   .box {
     flex: 0 0 @boxLength;
-    width: @boxLength;
+    width: 100%;
     background: @gray;
+    opacity: .3;
   }
 }
 
 .aside-body {
   flex: 1 1 800px;
   height: 100%;
+  margin: 0 20px;
   background: @gray;
+
+  .keyword {
+    font-size: 7rem;
+    color: @word;
+  }
 }
 
