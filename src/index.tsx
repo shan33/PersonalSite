@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="h-per-100 overflow-y">
       <Welcome />
-      <PersonalBlog />
+      {/* <PersonalBlog /> */}
       <PersonalTraveling />
     </div>
   )

@@ -2,9 +2,13 @@ import * as React from 'react';
 import './welcome.less'
 import { logo } from '../../assets/icons';
 
+import { getBasicInfo } from './service';
 import { Terminal } from './../../components/terminal/Terminal';
 
 function Welcome() {
+  React.useEffect(() => {
+    getBasicInfo();
+  }, []);
   return (
     <div className="flex between h-per-100 sticky outer dark">
       <aside className="aside flex column">

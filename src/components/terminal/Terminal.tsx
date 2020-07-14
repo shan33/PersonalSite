@@ -18,7 +18,7 @@ function OrderItem() {
     value: '',
     disabled: false
   }
-  let param: OrderParam = null;
+  let param: any;
   let dispather: Function = null;
   [param, dispather] = React.useReducer((state: Object, action: OrderAction) => {
     switch (action.type) {
