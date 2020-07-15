@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './terminal.less';
 import { OrderParam, OrderAction } from './type';
+import { FormattedMessage } from 'react-intl';
 
 export function Terminal() {
   return (
@@ -60,7 +61,9 @@ function OrderItem() {
       </p>
       <div className="response flex flex_start flex_center">
         <label htmlFor="" className="order-label">A: </label>
-        <p className="w-per_100 small">结果是发货单接口是否几点开始</p>
+        <FormattedMessage id="response" description="">
+          {/* <p className="w-per_100 small">结果是发货单接口是否几点开始</p> */}
+        </FormattedMessage>
       </div>
     </section>
   )
