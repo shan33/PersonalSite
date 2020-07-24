@@ -13,7 +13,7 @@ import en from './i18n/en';
 function App() {
   return (
     <IntlProvider locale='zh' messages={ch}>
-      <div className="h-per-100 overflow-y">
+      <div className="h-per_100 overflow-y">
         <Welcome />
         {/* <PersonalBlog /> */}
         <PersonalTraveling />

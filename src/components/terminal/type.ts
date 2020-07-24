@@ -1,5 +1,4 @@
 export type OrderParam = {
-  disabled: boolean,
   value: string,
   response: string
 }

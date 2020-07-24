@@ -22,7 +22,7 @@ function Welcome() {
     });
   }, []);
   return (
-    <div className="flex between h-per-100 sticky outer dark">
+    <div className="flex between h-per_100 sticky outer dark">
       <aside className="aside flex column">
         <section className="flex column flex_center">
           <div><img className="icon" src={logo} alt="logo" /></div>
@@ -30,7 +30,7 @@ function Welcome() {
           <p>{basicInfo.colleage}</p>
           <p>{basicInfo.birth}</p>
         </section>
-        <section className="flex column align-start terminal h-per-100">
+        <section className="flex column align-start terminal h-per_100 overflow-hidden">
           <Terminal />
         </section>
       </aside>
