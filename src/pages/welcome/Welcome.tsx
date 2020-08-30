@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './welcome.less'
 import { logo } from '../../assets/icons';
-import { getBasicInfo } from './service';
+import { getBasicInfo, insertBlog, insertComment, insertTerminal, insertTravel } from './service';
 import { Terminal } from './../../components/terminal/Terminal';
 import { InfoDispatcher, BasicInfo } from './type';
 
@@ -20,6 +20,11 @@ function Welcome() {
     getBasicInfo().then(res => {
       dispatcher({ type: 'update', value: res })
     });
+    /*     insertBlog();
+        insertComment();
+        insertTerminal();
+        insertTravel(); */
+    return () => { };
   }, []);
   return (
     <div className="flex between h-per_100 sticky outer dark">
