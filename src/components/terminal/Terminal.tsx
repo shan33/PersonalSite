@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './terminal.less';
 import { OrderParam, OrderAction } from './type';
+import { Dialog } from './../dialog/Dialog';
 import { FormattedMessage } from 'react-intl';
 import { getTerminalReponse } from './service'
 
@@ -8,10 +9,23 @@ export function Terminal() {
   const STATE = ['INPUT', 'DONE'];
   const [counter, addCounter] = React.useState([]);
   const [value, setValue] = React.useState('');
+  const [showDialog, setDialog] = React.useState(false);
 
   function onNextTerminal() {
-    counter.push(value);
-    addCounter(counter.slice());
+    switch (value) {
+      case 'add new order':
+          setDialog(true);
+          break;
+      case 'add new comment': 
+        alert('新增评论'); 
+        break;
+      case 'cls': 
+        addCounter([]);
+        break;
+      default: 
+        counter.push(value);
+        addCounter(counter.slice());
+    }
   }
 
   function onChange(e) {
@@ -39,6 +53,7 @@ export function Terminal() {
         <label htmlFor="" className="order-label">Q: </label>
         <input className="w-per_100 default order-input" placeholder="input..." autoFocus value={value} onChange={onChange} />
       </div>
+      <Dialog show={showDialog} />
     </div>
   )
 }

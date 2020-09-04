@@ -1,0 +1,46 @@
+@import './../../assets/common.less';
+
+.dialog {
+    position: fixed;  
+    width: 100vw;
+    height: 100vh;  
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .modal {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: @black;
+        opacity: 0.6;
+        z-index: 0;
+    }
+
+    &-content {
+        position: absolute;
+        min-width: 400px;
+        min-height: 300px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: @gray;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 5px @gray;
+        z-index: 1;
+    }
+    &-footer {
+        position: absolute;
+        bottom: 10px;
+    }
+}
+
+.show {
+    display: block; 
+}
+
+.hidden {
+    display: none;
+}

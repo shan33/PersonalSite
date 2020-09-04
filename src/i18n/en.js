@@ -1,3 +1,4 @@
 export default {
-  response: 'please input...'
+  response: 'please input...',
+  cancelBtn: 'cancel'
 }
