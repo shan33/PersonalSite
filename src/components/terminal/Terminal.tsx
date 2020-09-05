@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './terminal.less';
 import { OrderParam, OrderAction } from './type';
-import { Dialog } from './../dialog/Dialog';
+import { TerminalDialog } from './../dialog/Dialog';
 import { FormattedMessage } from 'react-intl';
 import { getTerminalReponse } from './service'
 
@@ -13,10 +13,10 @@ export function Terminal() {
 
   function onNextTerminal() {
     switch (value) {
-      case 'add new order':
+      case 'order':
           setDialog(true);
           break;
-      case 'add new comment': 
+      case 'comment': 
         alert('新增评论'); 
         break;
       case 'cls': 
@@ -42,6 +42,10 @@ export function Terminal() {
     }
   }
 
+  function onCloseDialog() {
+    setDialog(false);
+  }
+
   return (
     <div className="order flex column between h-per_100" onKeyPress={onKeyEnter}>
       <div className="h-per_100 overflow-y" >
@@ -53,7 +57,7 @@ export function Terminal() {
         <label htmlFor="" className="order-label">Q: </label>
         <input className="w-per_100 default order-input" placeholder="input..." autoFocus value={value} onChange={onChange} />
       </div>
-      <Dialog show={showDialog} />
+      <TerminalDialog show={showDialog} onClose={onCloseDialog} title="新增命令" />
     </div>
   )
 }
