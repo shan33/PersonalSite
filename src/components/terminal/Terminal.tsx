@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './terminal.less';
 import { OrderParam, OrderAction } from './type';
-import { TerminalDialog, CommontDialog, BlogDialog } from './../dialog/Dialog';
+import { TerminalDialog, CommontDialog, BlogDialog, TravelDialog } from './../dialog/Dialog';
 import { FormattedMessage } from 'react-intl';
 import { getTerminalReponse } from './service'
 
@@ -22,6 +22,9 @@ export function Terminal() {
       case 'blog':
         setDialog('blog');
         break; 
+      case 'travel': 
+        setDialog('travel');
+        break;
       case 'cls': 
         addCounter([]);
         break;
@@ -42,6 +45,9 @@ export function Terminal() {
         break;
       case 'blog':
         $dialog = <BlogDialog onClose={onCloseDialog} title="新增日志记录" />;
+        break;
+      case 'travel': 
+        $dialog = <TravelDialog onClose={onCloseDialog} title="新增旅行记录" />
         break;
       default:
         break;

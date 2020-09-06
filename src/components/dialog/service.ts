@@ -15,19 +15,20 @@ function insertComment(params) {
 
 
 /** 新增旅行 */
-function insertTravel() {
+function insertTravel(params) {
   return http({
     url: '/home/insertTravelInfo',
     type: 'post',
-    param: {
-      startTime: '2020-1-1',
-      endTime: '2020-1-1',
-      country: 'china',
-      city: 'hangzhou',
-      pics: '',
-      content: 'test1',
-      partner: 'no'
-    }
+    param: params
+    // {
+    //   startTime: '2020-1-1',
+    //   endTime: '2020-1-1',
+    //   country: 'china',
+    //   city: 'hangzhou',
+    //   pics: '',
+    //   content: 'test1',
+    //   partner: 'no'
+    // }
   });
 }
 

@@ -7,7 +7,8 @@ export function PersonalComment() {
 
   React.useEffect(() => {
     getCommentList().then(res => setComment(res));
-  })
+    return () => {};
+  }, [])
 
   return (
     <div className="dark flex column overflow-y">

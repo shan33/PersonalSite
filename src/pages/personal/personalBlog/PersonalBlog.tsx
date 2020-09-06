@@ -6,9 +6,13 @@ export function PersonalBlog() {
   const [blogs, setBlogs] = React.useState([]);
 
   React.useEffect(() => {
-    getBlogList().then(res => setBlogs(res));
-  })
+    initData();
+    return () => {};
+  }, [])
 
+  function  initData() {
+    getBlogList().then(res => setBlogs(res));
+  }
   return (
     <div className="dark flex column overflow-y">
       {

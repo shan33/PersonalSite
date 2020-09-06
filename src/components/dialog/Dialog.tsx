@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './dialog.less';
 import { FormattedMessage } from 'react-intl';
-import { insertTerminal, insertComment, insertBlog } from './service';
+import { insertTerminal, insertComment, insertBlog, insertTravel } from './service';
 
 /** 命令弹窗通用 */
 export function Dialog(props) {
@@ -168,7 +168,54 @@ export function BlogDialog(props) {
  * @param props 
  */
 export function TravelDialog(props) {
+    const [startTime, setStartTime] = React.useState(''),
+        [endTime, setEndTime] = React.useState(''),
+        [country, setCountry] = React.useState(''),
+        [city, setCity] = React.useState(''),
+        [content, setCountent] = React.useState(''),
+        [partner, setPartner] = React.useState('');
 
+    function onStartTimeChange({ target }) {
+        console.log(target.value);
+        setStartTime(target.value);
+    }
+
+    function onEndTimeChange({ target }) {
+        setEndTime(target.value);
+    }
+
+    function onCountryChange({ target }) {
+        setCountry(target.value);
+    }
+
+    function onCityChange({ target }) {
+        setCity(target.value);
+    }
+
+    function onContentChange({ target }) {
+        setCountent(target.value);
+    }
+
+    function onPartnerChange({ target }) {
+        setPartner(target.value);
+    }
+
+    function onAction() {
+        insertTravel({country, city, startTime, endTime, content, partner, pics: ''}).then(res => alert(res));
+    }
+
+    return (
+        <Dialog {...props} onAction={onAction} height="500px">
+            <form>
+                <FormItem type="date" label="开始时间:" onChange={onStartTimeChange} />
+                <FormItem type="date" label="结束时间:" onChange={onEndTimeChange} />
+                <FormItem type="input" label="国家:" placeholder="输入国家" onChange={onCountryChange} />
+                <FormItem type="input" label="城市:" placeholder="输入城市" onChange={onCityChange} />
+                <FormItem type="input" label="内容:" placeholder="输入内容" onChange={onContentChange} />
+                <FormItem type="textarea" label="同行:" placeholder="同行人" onChange={onPartnerChange} />
+            </form>
+        </Dialog>
+    )
 
 }
 
@@ -179,10 +226,14 @@ export function FormItem(props) {
         let $child = null;
         switch (type) {
             case 'input':
-                $child = <input className="form-input pad-10 text_12" {...params} onChange={onChange} />;
+                $child = <input type="text" className="form-input pad-10 text_12" {...params} onChange={onChange} />;
                 break;
             case 'textarea':
                 $child = <textarea rows="3" className="form-textarea pad-10 text_12" {...params} onChange={onChange} />
+                break;
+            case 'date': 
+                $child = <input type="date" className="form-input pad-10 text_12" {...params} onChange={onChange} />
+                break;
             default:
                 break;
         }
