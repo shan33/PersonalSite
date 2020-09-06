@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './terminal.less';
 import { OrderParam, OrderAction } from './type';
-import { TerminalDialog } from './../dialog/Dialog';
+import { TerminalDialog, CommontDialog, BlogDialog } from './../dialog/Dialog';
 import { FormattedMessage } from 'react-intl';
 import { getTerminalReponse } from './service'
 
@@ -9,16 +9,19 @@ export function Terminal() {
   const STATE = ['INPUT', 'DONE'];
   const [counter, addCounter] = React.useState([]);
   const [value, setValue] = React.useState('');
-  const [showDialog, setDialog] = React.useState(false);
+  const [dialog, setDialog] = React.useState(null);
 
   function onNextTerminal() {
     switch (value) {
       case 'order':
-          setDialog(true);
-          break;
-      case 'comment': 
-        alert('新增评论'); 
+        setDialog('order');
         break;
+      case 'comment': 
+        setDialog('comment'); 
+        break;
+      case 'blog':
+        setDialog('blog');
+        break; 
       case 'cls': 
         addCounter([]);
         break;
@@ -26,6 +29,24 @@ export function Terminal() {
         counter.push(value);
         addCounter(counter.slice());
     }
+  }
+
+  function getDailog() {
+    let $dialog = null;
+    switch (dialog) {
+      case 'order':
+        $dialog = <TerminalDialog onClose={onCloseDialog} title="新增命令" />;
+        break;
+      case 'comment':
+        $dialog = <CommontDialog onClose={onCloseDialog} title="新增评论" />;
+        break;
+      case 'blog':
+        $dialog = <BlogDialog onClose={onCloseDialog} title="新增日志记录" />;
+        break;
+      default:
+        break;
+    }
+    return $dialog;
   }
 
   function onChange(e) {
@@ -43,7 +64,7 @@ export function Terminal() {
   }
 
   function onCloseDialog() {
-    setDialog(false);
+    setDialog(null);
   }
 
   return (
@@ -57,7 +78,10 @@ export function Terminal() {
         <label htmlFor="" className="order-label">Q: </label>
         <input className="w-per_100 default order-input" placeholder="input..." autoFocus value={value} onChange={onChange} />
       </div>
-      <TerminalDialog show={showDialog} onClose={onCloseDialog} title="新增命令" />
+      {
+        getDailog()
+      }
+      
     </div>
   )
 }

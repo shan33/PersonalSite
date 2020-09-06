@@ -63,6 +63,9 @@ html,body,#root {
   &.align_end {
     align-items: flex-end;
   }
+  &.align_center {
+    align-items: center;
+  }
   &.column {
     flex-direction: column;
   }
@@ -80,6 +83,24 @@ html,body,#root {
 .mar {
   &-l-20 {
     margin-left: 20px;
+  }
+}
+
+.pad {
+  &-10 {
+    padding: 10px;
+  }
+  &-l-10 {
+    padding-left: 10px;
+  }
+  &-r-10 {
+    padding-right: 10px;
+  }
+  &-t-10 {
+    padding-top: 10px;
+  }
+  &-b-10 {
+    padding-bottom: 10px;
   }
 }
 
@@ -112,5 +133,19 @@ input.default {
   &_14 {
     font-size: 14px;
   }
+  &-16 {
+    font-size: 16px;
+  }
 
+}
+
+@keyframes easein {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+  }
 }

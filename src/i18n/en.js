@@ -1,4 +1,5 @@
 export default {
   response: 'please input...',
-  cancelBtn: 'cancel'
+  cancelBtn: 'cancel',
+  submitBtn: 'submit',
 }

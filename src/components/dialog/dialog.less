@@ -7,6 +7,8 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    animation: easein 200ms ease-in-out; 
+    // transition: all ease-in-out 500ms;
 
     .modal {
         position: fixed;
@@ -46,3 +48,20 @@
     display: none;
 }
 
+.form {
+    &-label {
+        color: #cccccc;
+        flex: 0 0 100px;
+    }
+    &-input {
+        flex: 0 0 60%;
+        border: none;
+        outline: none;
+        background: #F2F2F2;
+        text-align: left;
+    }
+    &-textarea {
+        flex: 0 0 60%;
+        text-align: left;
+    }
+}

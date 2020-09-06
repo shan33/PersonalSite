@@ -1,14 +1,15 @@
 import { http } from './../../utils/http';
 
 /** 新增评论 */
-function insertComment() {
+function insertComment(params) {
   return http({
     url: '/home/insertComment',
     type: 'post',
-    param: {
-      user: 'test1',
-      content: 'comment1'
-    }
+    param: params
+    // param: {
+    //   user: 'test1',
+    //   content: 'comment1'
+    // }
   })
 }
 
@@ -31,26 +32,20 @@ function insertTravel() {
 }
 
 /** 新增日志 */
-function insertBlog() {
+function insertBlog(params) {
   return http({
     url: '/home/insertBlog',
     type: 'post',
-    param: {
-      title: 'test1',
-      content: 'test1'
-    }
+    param: params
   })
 }
 
 /** 新增命令 */
-function insertTerminal() {
+function insertTerminal(params) {
   return http({
     url: '/home/insertTerminal',
     type: 'post',
-    param: {
-      request: 'test1',
-      response: 'test1'
-    }
+    param: params
   })
 }
 
