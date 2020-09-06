@@ -22,12 +22,18 @@
   }
   
   .box {
+    position: relative;
     flex: 0 0 @boxLength;
-    width: 100%;
+    width: 25vw;
     background: @gray;
     opacity: .3;
     border-radius: 20px;
     box-shadow: 0 0 2px 2px #999;
+    overflow-y: auto;
+
+    &-title {
+      width: 100%;
+    }
   }
 }
 

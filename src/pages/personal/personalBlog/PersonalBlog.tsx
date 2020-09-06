@@ -1,18 +1,30 @@
 import * as React from 'react';
 import './personalBlog.less';
+import { getBlogList } from './service';
 
 export function PersonalBlog() {
+  const [blogs, setBlogs] = React.useState([]);
+
+  React.useEffect(() => {
+    getBlogList().then(res => setBlogs(res));
+  })
+
   return (
-    <div className="sticky h-per_100 dark flex column overflow-y">
+    <div className="dark flex column overflow-y">
       {
-        [1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => <Blog key={item} />)
+        blogs.map((item, index) => <Blog key={index} title={item.title} content={item.content} />)
       }
     </div>
   )
 }
 
-function Blog() {
+function Blog(props) {
+  const { title, content } = props;
+
   return (
-    <div className="blog">Blog</div>
+    <div className="blog pad-10">
+      <p className="blog-title text-20">{title}</p>
+      <p className="blog-content text-14">{content}</p>
+    </div>
   )
 }

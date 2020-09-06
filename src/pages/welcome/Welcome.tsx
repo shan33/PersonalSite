@@ -1,8 +1,12 @@
 import * as React from 'react';
 import './welcome.less'
 import { logo } from '../../assets/icons';
-import { getBasicInfo, insertBlog, insertComment, insertTerminal, insertTravel } from './service';
+import { getBasicInfo } from './service';
+import { FormattedMessage } from 'react-intl';
 import { Terminal } from './../../components/terminal/Terminal';
+import { PersonalComment } from './../personal/personalComment/PersonalComment';
+import { PersonalBlog } from './../personal/personalBlog/PersonalBlog';
+
 import { InfoDispatcher, BasicInfo } from './type';
 
 function Welcome() {
@@ -18,12 +22,10 @@ function Welcome() {
 
   React.useEffect(() => {
     getBasicInfo().then(res => {
-      dispatcher({ type: 'update', value: res })
+      console.log(res);
+      dispatcher({ type: 'update', value: res[0] })
     });
-    /*     insertBlog();
-        insertComment();
-        insertTerminal();
-        insertTravel(); */
+  
     return () => { };
   }, []);
   return (
@@ -45,8 +47,18 @@ function Welcome() {
         </section>
       </aside>
       <aside className="aside flex column around">
-        <section className="box"></section>
-        <section className="box"></section>
+        <section className="box flex column between overflow-hidden">
+          <h5 className="pad-10 box-title">
+            <FormattedMessage id="blog" />
+          </h5>
+          <PersonalBlog />
+        </section>
+        <section className="box flex column between overflow-hidden">
+          <h5 className="pad-10 box-title">
+            <FormattedMessage id="comment" />
+          </h5>
+          <PersonalComment />
+        </section>
       </aside>
     </div>
   )
