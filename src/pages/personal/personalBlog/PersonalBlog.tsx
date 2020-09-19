@@ -10,7 +10,7 @@ export function PersonalBlog() {
     return () => {};
   }, [])
 
-  function  initData() {
+  function initData() {
     getBlogList().then(res => setBlogs(res));
   }
   return (

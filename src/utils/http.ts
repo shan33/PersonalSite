@@ -4,7 +4,7 @@ type HttpConfig = {
   param: Object | null | undefined,
 }
 
-const prefix = 'http://xxx.xxx.xxx.xxx:8080'
+const prefix = 'http://localhost:8080'
 function http(config: HttpConfig) {
   const url = `${prefix}${config.url}`;
 

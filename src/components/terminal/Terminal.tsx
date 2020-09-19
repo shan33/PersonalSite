@@ -4,6 +4,7 @@ import { OrderParam, OrderAction } from './type';
 import { TerminalDialog, CommontDialog, BlogDialog, TravelDialog } from './../dialog/Dialog';
 import { FormattedMessage } from 'react-intl';
 import { getTerminalReponse } from './service'
+import { debug } from 'webpack';
 
 export function Terminal() {
   const STATE = ['INPUT', 'DONE'];
@@ -99,8 +100,8 @@ function OrderRes({ req }) {
     value: req,
   }
   React.useEffect(() => {
-    getTerminalReponse({ order: req }).then(res => dispather({ type: 'response', value: res.response }));
-    return undefined;
+    getTerminalReponse({ order: req }).then( res => dispather({ type: 'response', value: Array.isArray(res) && res[0].response }));
+    return () => {};
   }, [req]);
 
   let param: any;

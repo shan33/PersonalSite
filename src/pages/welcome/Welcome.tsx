@@ -10,21 +10,21 @@ import { PersonalBlog } from './../personal/personalBlog/PersonalBlog';
 import { InfoDispatcher, BasicInfo } from './type';
 
 function Welcome() {
-  let basicInfo: any = null,
-    dispatcher: Function = null;
-  [basicInfo, dispatcher] = React.useReducer((state: BasicInfo, action: InfoDispatcher) => {
-    if (action.type === 'update') {
-      return action.value;
-    }
-    return state;
-  }, {});
 
+  const [basicInfo, setBasicInfo] = React.useState({name: '', colleage: '', birth: ''});
 
   React.useEffect(() => {
+    // [basicInfo, dispatcher] = React.useReducer((state: BasicInfo, action: InfoDispatcher) => {
+    //   if (action.type === 'update') {
+    //     return action.value;
+    //   }
+    //   return state;
+    // }, {});
+
     getBasicInfo().then(res => {
-      console.log(res);
-      dispatcher({ type: 'update', value: res[0] })
-    });
+      setBasicInfo(res[0]);
+      // dispatcher({ type: 'update', value: res[0] })
+    }).catch(error => {});
   
     return () => { };
   }, []);
@@ -47,13 +47,13 @@ function Welcome() {
         </section>
       </aside>
       <aside className="aside flex column around">
-        <section className="box flex column between overflow-hidden">
+        <section className="box flex column overflow-hidden bg_none">
           <h5 className="pad-10 box-title">
             <FormattedMessage id="blog" />
           </h5>
           <PersonalBlog />
         </section>
-        <section className="box flex column between overflow-hidden">
+        <section className="box flex column overflow-hidden bg_none">
           <h5 className="pad-10 box-title">
             <FormattedMessage id="comment" />
           </h5>
